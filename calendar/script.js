@@ -2,6 +2,8 @@ const monthYearElement = document.getElementById("monthYear") // finds place whe
 const datesElement = document.getElementById("dates") // container where days will go
 const prev = document.getElementById("prev") // selects buttons
 const next = document.getElementById("next")
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
 
 //let currentDate = new Date(); // gets the date, is a let so prev and next can change the value
 
@@ -55,8 +57,8 @@ const buildUI = (offset) => {
 
     const UIData = updateCalendar(new Date(new Date().setMonth(currentMonthFirstDay.getMonth() + offset)));
     console.log(JSON.stringify(UIData, null, '\t'));
-
-
+    const MonthContainer = document.getElementById("monthYear");
+    MonthContainer.innerHTML=months[UIData.currentMonth]
     const totalBlocks = 6*7;
     const container = document.getElementById("dates");
     container.innerHTML = '';
